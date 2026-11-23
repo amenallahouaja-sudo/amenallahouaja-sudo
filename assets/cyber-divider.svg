@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 24" width="100%">
+  <defs>
+    <linearGradient id="rail" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#FCEE0A" stop-opacity="0.1"/>
+      <stop offset="20%" stop-color="#FCEE0A" stop-opacity="0.9"/>
+      <stop offset="50%" stop-color="#00F0FF" stop-opacity="1"/>
+      <stop offset="80%" stop-color="#FF003C" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#FF003C" stop-opacity="0.1"/>
+    </linearGradient>
+    <linearGradient id="pulseBeam" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00F0FF" stop-opacity="0"/>
+      <stop offset="50%" stop-color="#FCEE0A" stop-opacity="1"/>
+      <stop offset="100%" stop-color="#00F0FF" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <style>
+    .beam {
+      animation: slideBeam 3s linear infinite;
+    }
+    @keyframes slideBeam {
+      0% { transform: translateX(-180px); }
+      100% { transform: translateX(960px); }
+    }
+  </style>
+  <line x1="10" y1="12" x2="890" y2="12" stroke="url(#rail)" stroke-width="2"/>
+  <polygon points="410,12 422,5 478,5 490,12 478,19 422,19" fill="#0A0A0F" stroke="#FCEE0A" stroke-width="1.5"/>
+  <rect x="434" y="10" width="32" height="4" fill="#00F0FF"/>
+  <rect x="0" y="10" width="140" height="4" fill="url(#pulseBeam)" class="beam"/>
+</svg>

@@ -1,0 +1,146 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 230" width="100%">
+  <defs>
+    <linearGradient id="cardBg" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a0b14"/>
+      <stop offset="100%" stop-color="#140c1c"/>
+    </linearGradient>
+    <linearGradient id="skyGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#140824"/>
+      <stop offset="65%" stop-color="#290a2e"/>
+      <stop offset="100%" stop-color="#0c0e1a"/>
+    </linearGradient>
+    <pattern id="hazard" width="14" height="14" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
+      <rect width="7" height="14" fill="#FCEE0A"/>
+      <rect x="7" width="7" height="14" fill="#0A0A0F"/>
+    </pattern>
+    <filter id="neonGlow">
+      <feGaussianBlur stdDeviation="2.5" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <style>
+    .title {
+      font-family: 'Segoe UI', 'Arial Black', sans-serif;
+      font-weight: 900;
+      font-size: 30px;
+      letter-spacing: 2px;
+      fill: #FCEE0A;
+    }
+    .mono { font-family: 'Consolas', 'Courier New', monospace; }
+    .sans { font-family: 'Segoe UI', Arial, sans-serif; }
+    .pulse { animation: p 2s ease-in-out infinite; }
+    .reticle { animation: spin 9s linear infinite; transform-origin: 725px 118px; }
+    .laser { animation: fire 1.8s ease-in-out infinite; }
+    .glitchShift { animation: gShift 4s infinite; }
+
+    @keyframes p {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+    @keyframes spin {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+    @keyframes fire {
+      0%, 100% { opacity: 0.2; transform: scaleX(0.4); }
+      50% { opacity: 1; transform: scaleX(1); }
+    }
+    @keyframes gShift {
+      0%, 91%, 100% { transform: translate(0, 0); opacity: 0; }
+      93% { transform: translate(-3px, 0); opacity: 0.85; }
+      95% { transform: translate(3px, 0); opacity: 0.75; }
+    }
+  </style>
+
+  <!-- Main Card Container -->
+  <polygon points="0,18 18,0 882,0 900,18 900,212 882,230 18,230 0,212" fill="url(#cardBg)" stroke="#FCEE0A" stroke-width="2"/>
+
+  <!-- Top Hazard Stripe Bar -->
+  <rect x="18" y="2" width="190" height="8" fill="url(#hazard)"/>
+  <text x="220" y="24" class="mono" font-size="11" fill="#FF003C" letter-spacing="2" font-weight="bold">[ FEATURED CREATION // EXECUTABLE ARCHIVE ]</text>
+
+  <!-- Left Content: Game Info -->
+  <g transform="translate(32, 68)">
+    <!-- Glitch ghost layer -->
+    <text x="0" y="0" class="title glitchShift" fill="#00F0FF">CYBERPUNK: SYSTEM BREAK</text>
+    <text x="0" y="0" class="title" filter="url(#neonGlow)">CYBERPUNK: SYSTEM BREAK</text>
+
+    <line x1="0" y1="14" x2="495" y2="14" stroke="#00F0FF" stroke-width="1.5" stroke-opacity="0.7"/>
+
+    <text x="0" y="42" class="sans" font-size="15.5" fill="#E2E8F0">
+      Custom 2D cyberpunk action game engineered from scratch
+    </text>
+    <text x="0" y="64" class="sans" font-size="15.5" fill="#E2E8F0">
+      in <tspan fill="#00F0FF" font-weight="bold">C / SDL2</tspan> with real-time rendering &amp; combat.
+    </text>
+
+    <!-- Tech & Feature Pills -->
+    <g transform="translate(0, 88)" class="mono" font-size="11.5" font-weight="bold">
+      <polygon points="0,5 5,0 86,0 86,24 81,29 0,29" fill="#171929" stroke="#00F0FF" stroke-width="1.2"/>
+      <text x="43" y="19" text-anchor="middle" fill="#00F0FF">LANG: C</text>
+
+      <polygon points="98,5 103,0 198,0 198,24 193,29 98,29" fill="#171929" stroke="#FCEE0A" stroke-width="1.2"/>
+      <text x="148" y="19" text-anchor="middle" fill="#FCEE0A">SDL2 ENGINE</text>
+
+      <polygon points="210,5 215,0 356,0 356,24 351,29 210,29" fill="#171929" stroke="#FF003C" stroke-width="1.2"/>
+      <text x="283" y="19" text-anchor="middle" fill="#FF003C">REAL-TIME COMBAT</text>
+
+      <polygon points="368,5 373,0 492,0 492,24 487,29 368,29" fill="#171929" stroke="#00F0FF" stroke-width="1.2"/>
+      <text x="430" y="19" text-anchor="middle" fill="#00F0FF">2D RENDERER</text>
+    </g>
+
+    <!-- Bottom telemetry -->
+    <text x="0" y="142" class="mono" font-size="11" fill="#8892b0">
+      &gt; STATUS: <tspan fill="#00F0FF">BUILT FROM SCRATCH</tspan>  |  MEMORY: <tspan fill="#FCEE0A">MANUAL</tspan>  |  FRAME: <tspan fill="#FF003C">60 FPS LOCK</tspan>
+    </text>
+  </g>
+
+  <!-- Right Side: Animated Mini Cyberpunk 2D Viewport HUD -->
+  <g>
+    <polygon points="585,36 868,36 868,194 854,208 585,208" fill="url(#skyGrad)" stroke="#00F0FF" stroke-width="1.5"/>
+
+    <!-- Neon Sun -->
+    <circle cx="725" cy="112" r="36" fill="#FF003C" opacity="0.28"/>
+    <circle cx="725" cy="112" r="24" fill="#FCEE0A" opacity="0.25"/>
+
+    <!-- Cyber Skyline Silhouette -->
+    <path d="M 586 168 L 586 120 L 606 120 L 606 142 L 622 142 L 622 96 L 648 96 L 648 134 L 664 134 L 664 110 L 690 110 L 690 152 L 716 152 L 716 86 L 742 86 L 742 138 L 768 138 L 768 104 L 796 104 L 796 146 L 820 146 L 820 118 L 846 118 L 846 154 L 867 154 L 867 168 Z" fill="#090a14"/>
+
+    <!-- Glowing building windows -->
+    <g fill="#00F0FF" opacity="0.85">
+      <rect x="628" y="106" width="4" height="6"/>
+      <rect x="636" y="116" width="4" height="6" fill="#FCEE0A"/>
+      <rect x="722" y="96" width="5" height="6"/>
+      <rect x="731" y="108" width="5" height="6" fill="#FF003C"/>
+      <rect x="774" y="114" width="4" height="6"/>
+      <rect x="826" y="128" width="4" height="6" fill="#FCEE0A"/>
+    </g>
+
+    <!-- Perspective Ground Grid -->
+    <line x1="586" y1="168" x2="867" y2="168" stroke="#00F0FF" stroke-width="1.5"/>
+    <line x1="586" y1="184" x2="867" y2="184" stroke="#00F0FF" stroke-opacity="0.45" stroke-width="1"/>
+    <line x1="586" y1="198" x2="867" y2="198" stroke="#00F0FF" stroke-opacity="0.25" stroke-width="1"/>
+
+    <!-- Animated Combat Laser Beam -->
+    <rect x="630" y="154" width="120" height="3" fill="#00F0FF" filter="url(#neonGlow)" class="laser" style="transform-origin: 630px 155px;"/>
+
+    <!-- Animated HUD Targeting Reticle -->
+    <g class="reticle" stroke="#FCEE0A" stroke-width="1.5" fill="none" opacity="0.85">
+      <circle cx="725" cy="118" r="28" stroke-dasharray="10 6"/>
+      <line x1="725" y1="82" x2="725" y2="92"/>
+      <line x1="725" y1="144" x2="725" y2="154"/>
+      <line x1="689" y1="118" x2="699" y2="118"/>
+      <line x1="751" y1="118" x2="761" y2="118"/>
+    </g>
+    <circle cx="725" cy="118" r="3" fill="#FF003C" class="pulse"/>
+
+    <!-- Viewport HUD Overlay Text -->
+    <text x="596" y="54" class="mono" font-size="10" fill="#FCEE0A">CAM_01 // COMBAT_SIM</text>
+    <text x="858" y="54" text-anchor="end" class="mono pulse" font-size="10" fill="#FF003C">● REC</text>
+    <text x="596" y="198" class="mono" font-size="9.5" fill="#00F0FF">HP [██████████] 100%</text>
+  </g>
+</svg>

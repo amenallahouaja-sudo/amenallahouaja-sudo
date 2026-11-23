@@ -1,0 +1,192 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 260" width="100%">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#07070c"/>
+      <stop offset="50%" stop-color="#0e0e18"/>
+      <stop offset="100%" stop-color="#140914"/>
+    </linearGradient>
+    <linearGradient id="yellowCyan" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#FCEE0A"/>
+      <stop offset="55%" stop-color="#00F0FF"/>
+      <stop offset="100%" stop-color="#FF003C"/>
+    </linearGradient>
+    <linearGradient id="scanGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#00F0FF" stop-opacity="0"/>
+      <stop offset="50%" stop-color="#00F0FF" stop-opacity="0.22"/>
+      <stop offset="100%" stop-color="#00F0FF" stop-opacity="0"/>
+    </linearGradient>
+    <pattern id="grid" width="36" height="36" patternUnits="userSpaceOnUse">
+      <path d="M 36 0 L 0 0 0 36" fill="none" stroke="#00F0FF" stroke-opacity="0.07" stroke-width="1"/>
+    </pattern>
+    <pattern id="scanlines" width="4" height="4" patternUnits="userSpaceOnUse">
+      <rect width="4" height="1" fill="#000000" fill-opacity="0.32"/>
+    </pattern>
+    <filter id="glowYellow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="4" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="glowCyan" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="3" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <style>
+    .title-main {
+      font-family: 'Segoe UI', 'Orbitron', 'Arial Black', sans-serif;
+      font-weight: 900;
+      font-size: 64px;
+      letter-spacing: 12px;
+      fill: #FCEE0A;
+    }
+    .title-cyan {
+      font-family: 'Segoe UI', 'Orbitron', 'Arial Black', sans-serif;
+      font-weight: 900;
+      font-size: 64px;
+      letter-spacing: 12px;
+      fill: #00F0FF;
+      opacity: 0.7;
+      animation: glitchCyan 3.4s infinite;
+    }
+    .title-red {
+      font-family: 'Segoe UI', 'Orbitron', 'Arial Black', sans-serif;
+      font-weight: 900;
+      font-size: 64px;
+      letter-spacing: 12px;
+      fill: #FF003C;
+      opacity: 0.7;
+      animation: glitchRed 3.4s infinite;
+    }
+    .mono {
+      font-family: 'Consolas', 'Courier New', monospace;
+    }
+    .scanbar {
+      animation: scanMove 4.5s linear infinite;
+    }
+    .pulse {
+      animation: pulseOp 1.8s ease-in-out infinite;
+    }
+    .blink {
+      animation: blinkCursor 1s step-end infinite;
+    }
+    .radar-bar1 { animation: barAnim 1.4s ease-in-out infinite alternate; }
+    .radar-bar2 { animation: barAnim 1.1s ease-in-out 0.2s infinite alternate; }
+    .radar-bar3 { animation: barAnim 1.7s ease-in-out 0.4s infinite alternate; }
+    .radar-bar4 { animation: barAnim 1.2s ease-in-out 0.1s infinite alternate; }
+    .radar-bar5 { animation: barAnim 1.5s ease-in-out 0.3s infinite alternate; }
+
+    @keyframes glitchCyan {
+      0%, 86%, 100% { transform: translate(0, 0); opacity: 0; }
+      88% { transform: translate(-4px, -2px); opacity: 0.85; }
+      90% { transform: translate(3px, 1px); opacity: 0.75; }
+      92% { transform: translate(-2px, 0); opacity: 0.85; }
+      94% { transform: translate(0, 0); opacity: 0; }
+    }
+    @keyframes glitchRed {
+      0%, 86%, 100% { transform: translate(0, 0); opacity: 0; }
+      88% { transform: translate(4px, 2px); opacity: 0.85; }
+      90% { transform: translate(-3px, -1px); opacity: 0.75; }
+      92% { transform: translate(3px, 0); opacity: 0.85; }
+      94% { transform: translate(0, 0); opacity: 0; }
+    }
+    @keyframes scanMove {
+      0% { transform: translateY(-40px); }
+      100% { transform: translateY(280px); }
+    }
+    @keyframes pulseOp {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.35; }
+    }
+    @keyframes blinkCursor {
+      0%, 49% { opacity: 1; }
+      50%, 100% { opacity: 0; }
+    }
+    @keyframes barAnim {
+      0% { transform: scaleY(0.3); }
+      100% { transform: scaleY(1); }
+    }
+  </style>
+
+  <!-- Main clipped cybernetic frame -->
+  <polygon points="0,24 24,0 876,0 900,24 900,236 876,260 24,260 0,236" fill="url(#bgGrad)"/>
+  <polygon points="0,24 24,0 876,0 900,24 900,236 876,260 24,260 0,236" fill="url(#grid)"/>
+
+  <!-- Top & bottom accent rails -->
+  <polygon points="24,0 260,0 246,6 24,6" fill="#FCEE0A"/>
+  <polygon points="640,254 876,254 876,260 654,260" fill="#00F0FF"/>
+
+  <!-- Outer HUD border -->
+  <polygon points="2,25 25,2 875,2 898,25 898,235 875,258 25,258 2,235" fill="none" stroke="url(#yellowCyan)" stroke-width="2" stroke-opacity="0.85"/>
+
+  <!-- Corner brackets -->
+  <path d="M 18 46 L 18 18 L 46 18" fill="none" stroke="#FCEE0A" stroke-width="3"/>
+  <path d="M 854 18 L 882 18 L 882 46" fill="none" stroke="#00F0FF" stroke-width="3"/>
+  <path d="M 18 214 L 18 242 L 46 242" fill="none" stroke="#FF003C" stroke-width="3"/>
+  <path d="M 854 242 L 882 242 L 882 214" fill="none" stroke="#FCEE0A" stroke-width="3"/>
+
+  <!-- Top HUD telemetry -->
+  <g class="mono" font-size="11">
+    <rect x="34" y="24" width="8" height="8" fill="#00F0FF" class="pulse"/>
+    <text x="50" y="32" fill="#00F0FF" letter-spacing="2">SYS.LINK // ACTIVE</text>
+    <text x="235" y="32" fill="#FCEE0A" opacity="0.8" letter-spacing="2">[ NIGHT_CITY // VER 20.77 ]</text>
+    <text x="678" y="32" fill="#FF003C" letter-spacing="2">BREACH: AUTHORIZED</text>
+  </g>
+
+  <!-- Subtle decorative horizontal circuit lines -->
+  <line x1="34" y1="46" x2="866" y2="46" stroke="#00F0FF" stroke-opacity="0.25" stroke-width="1"/>
+  <line x1="34" y1="214" x2="866" y2="214" stroke="#FCEE0A" stroke-opacity="0.25" stroke-width="1"/>
+
+  <!-- Left decorative cyber equalizer -->
+  <g transform="translate(42, 95)" fill="#00F0FF" opacity="0.65">
+    <rect x="0" y="0" width="5" height="60" class="radar-bar1" style="transform-origin: 2px 60px;"/>
+    <rect x="10" y="0" width="5" height="60" class="radar-bar2" fill="#FCEE0A" style="transform-origin: 12px 60px;"/>
+    <rect x="20" y="0" width="5" height="60" class="radar-bar3" style="transform-origin: 22px 60px;"/>
+    <rect x="30" y="0" width="5" height="60" class="radar-bar4" fill="#FF003C" style="transform-origin: 32px 60px;"/>
+    <rect x="40" y="0" width="5" height="60" class="radar-bar5" style="transform-origin: 42px 60px;"/>
+  </g>
+
+  <!-- Right decorative HUD badge -->
+  <g transform="translate(765, 86)" class="mono">
+    <polygon points="0,10 10,0 96,0 96,74 86,84 0,84" fill="#11111d" stroke="#FCEE0A" stroke-width="1.5"/>
+    <text x="12" y="22" fill="#FCEE0A" font-size="10" font-weight="bold">NETRUNNER</text>
+    <text x="12" y="38" fill="#00F0FF" font-size="10">ID: 2077-V</text>
+    <text x="12" y="54" fill="#FF003C" font-size="10">LVL: SUDO</text>
+    <rect x="12" y="64" width="70" height="8" fill="#1d1d2e"/>
+    <rect x="12" y="64" width="56" height="8" fill="#00F0FF" class="pulse"/>
+  </g>
+
+  <!-- Center Glitching Title -->
+  <g text-anchor="middle">
+    <text x="450" y="138" class="title-cyan">VASTO</text>
+    <text x="450" y="138" class="title-red">VASTO</text>
+    <text x="450" y="138" class="title-main" filter="url(#glowYellow)">VASTO</text>
+  </g>
+
+  <!-- Subtitle pill -->
+  <g>
+    <polygon points="180,158 192,150 708,150 720,158 720,180 708,188 192,188 180,180" fill="#121322" stroke="#00F0FF" stroke-width="1.2"/>
+    <text x="450" y="174" text-anchor="middle" class="mono" font-size="13.5" fill="#00F0FF" letter-spacing="3" filter="url(#glowCyan)">
+      GAME DEVELOPER // SYSTEMS &amp; FULL-STACK ARCHITECT
+    </text>
+  </g>
+
+  <!-- Bottom telemetry -->
+  <g class="mono" font-size="11">
+    <text x="34" y="236" fill="#FCEE0A" letter-spacing="1.5">&gt; USER: amenallahouaja-sudo</text>
+    <rect x="242" y="226" width="8" height="12" fill="#FCEE0A" class="blink"/>
+    <text x="450" y="236" text-anchor="middle" fill="#8892b0" letter-spacing="2">C/C++ • TS • PYTHON • LUA • PHP • SQL</text>
+    <text x="866" y="236" text-anchor="end" fill="#00F0FF" letter-spacing="1.5">LATENCY: 0.4ms</text>
+  </g>
+
+  <!-- Animated scanner sweep -->
+  <rect x="0" y="0" width="900" height="36" fill="url(#scanGrad)" class="scanbar"/>
+
+  <!-- Subtle CRT scanlines overlay -->
+  <polygon points="0,24 24,0 876,0 900,24 900,236 876,260 24,260 0,236" fill="url(#scanlines)" pointer-events="none"/>
+</svg>

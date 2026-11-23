@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 90" width="100%">
+  <defs>
+    <linearGradient id="fBg" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#090910"/>
+      <stop offset="50%" stop-color="#140c1a"/>
+      <stop offset="100%" stop-color="#090910"/>
+    </linearGradient>
+    <linearGradient id="fStroke" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#00F0FF"/>
+      <stop offset="50%" stop-color="#FCEE0A"/>
+      <stop offset="100%" stop-color="#FF003C"/>
+    </linearGradient>
+  </defs>
+  <style>
+    .mono { font-family: 'Consolas', 'Courier New', monospace; }
+    .glow { animation: gl 2.5s ease-in-out infinite; }
+    @keyframes gl {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.6; }
+    }
+  </style>
+  <polygon points="0,16 16,0 884,0 900,16 900,74 884,90 16,90 0,74" fill="url(#fBg)" stroke="url(#fStroke)" stroke-width="1.8"/>
+  <text x="450" y="42" text-anchor="middle" class="mono glow" font-size="18" font-weight="bold" fill="#FCEE0A" letter-spacing="4">
+    "WAKE UP, SAMURAI. WE HAVE CODE TO SHIP."
+  </text>
+  <text x="450" y="68" text-anchor="middle" class="mono" font-size="11.5" fill="#00F0FF" letter-spacing="2.5">
+    END OF TRANSMISSION // VASTO // NIGHT CITY 2077
+  </text>
+</svg>
